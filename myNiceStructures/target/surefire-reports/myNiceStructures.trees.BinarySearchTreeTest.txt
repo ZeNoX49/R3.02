@@ -1,0 +1,70 @@
+-------------------------------------------------------------------------------
+Test set: myNiceStructures.trees.BinarySearchTreeTest
+-------------------------------------------------------------------------------
+Tests run: 30, Failures: 12, Errors: 3, Skipped: 0, Time elapsed: 0.017 s <<< FAILURE! - in myNiceStructures.trees.BinarySearchTreeTest
+testRootRSTDeletion  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: La racine devrait être 2 ==> expected: <2> but was: <1>
+	at myNiceStructures.trees.BinarySearchTreeTest.testRootRSTDeletion(BinarySearchTreeTest.java:310)
+
+testFindSubTree  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: la recherche devrait être fructueuse ==> expected: not <null>
+	at myNiceStructures.trees.BinarySearchTreeTest.testFindSubTree(BinarySearchTreeTest.java:238)
+
+testIteratorPrefix  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.Iterator.hasNext()" because "it" is null
+	at myNiceStructures.trees.BinarySearchTreeTest.testIteratorPrefix(BinarySearchTreeTest.java:187)
+
+testIteratorSuffix  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.Iterator.hasNext()" because "it" is null
+	at myNiceStructures.trees.BinarySearchTreeTest.testIteratorSuffix(BinarySearchTreeTest.java:200)
+
+testDefaultIterator  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.Iterator.hasNext()" because "<local5>" is null
+	at myNiceStructures.trees.BinarySearchTreeTest.testDefaultIterator(BinarySearchTreeTest.java:225)
+
+testLSTDeletion  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: root->sag devrait être égal à 1 ==> expected: <1> but was: <2>
+	at myNiceStructures.trees.BinarySearchTreeTest.testLSTDeletion(BinarySearchTreeTest.java:383)
+
+testRootLSTLSTDeletion  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: La racine devrait être 3 ==> expected: <3> but was: <4>
+	at myNiceStructures.trees.BinarySearchTreeTest.testRootLSTLSTDeletion(BinarySearchTreeTest.java:323)
+
+testConstructionRacineNulle  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Il ne devrait pas être possible de construire un ABR avec une racine nulle ==> Unexpected exception type thrown, expected: <java.lang.NullPointerException> but was: <java.lang.IllegalArgumentException>
+	at myNiceStructures.trees.BinarySearchTreeTest.testConstructionRacineNulle(BinarySearchTreeTest.java:68)
+Caused by: java.lang.IllegalArgumentException: root ne peut pas être null
+	at myNiceStructures.trees.BinarySearchTreeTest.lambda$0(BinarySearchTreeTest.java:69)
+	at myNiceStructures.trees.BinarySearchTreeTest.testConstructionRacineNulle(BinarySearchTreeTest.java:68)
+
+testContains  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 21 devrait être trouvé ==> expected: <true> but was: <false>
+	at myNiceStructures.trees.BinarySearchTreeTest.testContains(BinarySearchTreeTest.java:247)
+
+testRootLSTDeletion  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: La racine devrait être 2 ==> expected: <2> but was: <3>
+	at myNiceStructures.trees.BinarySearchTreeTest.testRootLSTDeletion(BinarySearchTreeTest.java:297)
+
+testRSTDeletion  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: root->sad devrait être égal à 5 ==> expected: <5> but was: <6>
+	at myNiceStructures.trees.BinarySearchTreeTest.testRSTDeletion(BinarySearchTreeTest.java:441)
+
+testLSTLeafDeletion  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: root->sag->sag devrait être null ==> expected: <true> but was: <false>
+	at myNiceStructures.trees.BinarySearchTreeTest.testLSTLeafDeletion(BinarySearchTreeTest.java:361)
+
+testImpossibleRootDeletion  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Retirer la valeur d'un ABR ne contenant que cette valeur devrait être impossible ==> Expected myNiceStructures.trees.exceptions.ImpossibleDeletion to be thrown, but nothing was thrown.
+	at myNiceStructures.trees.BinarySearchTreeTest.testImpossibleRootDeletion(BinarySearchTreeTest.java:287)
+
+testRSTLeafDeletion  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: root->sag->sad ne devrait pas être null ==> expected: not <null>
+	at myNiceStructures.trees.BinarySearchTreeTest.testRSTLeafDeletion(BinarySearchTreeTest.java:419)
+
+testSetRoot  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Redéfinir la racine d'un ABR devrait être impossible ==> Unexpected exception type thrown, expected: <java.lang.UnsupportedOperationException> but was: <java.lang.IllegalAccessError>
+	at myNiceStructures.trees.BinarySearchTreeTest.testSetRoot(BinarySearchTreeTest.java:84)
+Caused by: java.lang.IllegalAccessError: Impossible de mettre des valeurs dans BinarySearchTreeImpl -> setRoot()
+	at myNiceStructures.trees.BinarySearchTreeTest.lambda$1(BinarySearchTreeTest.java:85)
+	at myNiceStructures.trees.BinarySearchTreeTest.testSetRoot(BinarySearchTreeTest.java:84)
+

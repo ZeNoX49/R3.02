@@ -1,0 +1,27 @@
+-------------------------------------------------------------------------------
+Test set: myNiceStructures.hashTables.ExternalChainingTableTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 1, Errors: 4, Skipped: 0, Time elapsed: 0.077 s <<< FAILURE! - in myNiceStructures.hashTables.ExternalChainingTableTest
+testIteratorRemove  Time elapsed: 0.021 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.Iterator.hasNext()" because "it" is null
+	at myNiceStructures.hashTables.ExternalChainingTableTest.testIteratorRemove(ExternalChainingTableTest.java:178)
+
+testIteratorException  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.Iterator.hasNext()" because "it" is null
+	at myNiceStructures.hashTables.ExternalChainingTableTest.testIteratorException(ExternalChainingTableTest.java:162)
+
+testIteratorEmptyList  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.Iterator.hasNext()" because the return value of "myNiceStructures.hashTables.HashTable.iterator()" is null
+	at myNiceStructures.hashTables.ExternalChainingTableTest.testIteratorEmptyList(ExternalChainingTableTest.java:210)
+
+testIterator  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.Iterator.hasNext()" because "it" is null
+	at myNiceStructures.hashTables.ExternalChainingTableTest.testIterator(ExternalChainingTableTest.java:138)
+
+testIteratorRemoveExceptions  Time elapsed: 0.021 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.lang.IllegalStateException> but was: <java.lang.NullPointerException>
+	at myNiceStructures.hashTables.ExternalChainingTableTest.testIteratorRemoveExceptions(ExternalChainingTableTest.java:192)
+Caused by: java.lang.NullPointerException: Cannot invoke "java.util.Iterator.remove()" because "<parameter1>" is null
+	at myNiceStructures.hashTables.ExternalChainingTableTest.lambda$3(ExternalChainingTableTest.java:193)
+	at myNiceStructures.hashTables.ExternalChainingTableTest.testIteratorRemoveExceptions(ExternalChainingTableTest.java:192)
+

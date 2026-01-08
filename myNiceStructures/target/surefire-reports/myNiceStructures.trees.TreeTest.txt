@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+Test set: myNiceStructures.trees.TreeTest
+-------------------------------------------------------------------------------
+Tests run: 22, Failures: 2, Errors: 7, Skipped: 0, Time elapsed: 0.067 s <<< FAILURE! - in myNiceStructures.trees.TreeTest
+testIteratorPrefix  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.Iterator.hasNext()" because "it" is null
+	at myNiceStructures.trees.TreeTest.testIteratorPrefix(TreeTest.java:211)
+
+testIteratorSuffix  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.Iterator.hasNext()" because "it" is null
+	at myNiceStructures.trees.TreeTest.testIteratorSuffix(TreeTest.java:224)
+
+testDefaultIterator  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.Iterator.hasNext()" because "<local5>" is null
+	at myNiceStructures.trees.TreeTest.testDefaultIterator(TreeTest.java:252)
+
+testProcessNodesSuffixBigTree  Time elapsed: 0 s  <<< ERROR!
+java.lang.StackOverflowError
+
+testGetNumNodesBigTree  Time elapsed: 0 s  <<< ERROR!
+java.lang.StackOverflowError
+
+testGetNumLeavesBigTree  Time elapsed: 0 s  <<< ERROR!
+java.lang.StackOverflowError
+
+testProcessNodesPrefixIterator  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Parcours invalide ==> expected: <a, b, c, d, e, f, g, h> but was: <c, e, d, b, g, f, h, a>
+	at myNiceStructures.trees.TreeTest.testProcessNodesPrefixIterator(TreeTest.java:151)
+
+testIteratorWidth  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Parcours invalide ==> expected: <a, b, f, h, c, d, g, e> but was: <b, h, d, e>
+	at myNiceStructures.trees.TreeTest.testIteratorWidth(TreeTest.java:244)
+
+testGetHeightBigTree  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.StackOverflowError
+

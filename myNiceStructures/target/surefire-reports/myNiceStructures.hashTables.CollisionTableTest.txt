@@ -1,0 +1,52 @@
+-------------------------------------------------------------------------------
+Test set: myNiceStructures.hashTables.CollisionTableTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 0.252 s <<< FAILURE! - in myNiceStructures.hashTables.CollisionTableTest
+testRemoveKeyNull  Time elapsed: 0.096 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at myNiceStructures.hashTables.CollisionTableTest.setUp(CollisionTableTest.java:51)
+
+testIteratorRemove  Time elapsed: 0 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at myNiceStructures.hashTables.CollisionTableTest.setUp(CollisionTableTest.java:51)
+
+testSize  Time elapsed: 0 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at myNiceStructures.hashTables.CollisionTableTest.setUp(CollisionTableTest.java:51)
+
+testPutKeyNull  Time elapsed: 0 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at myNiceStructures.hashTables.CollisionTableTest.setUp(CollisionTableTest.java:51)
+
+testIteratorException  Time elapsed: 0 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at myNiceStructures.hashTables.CollisionTableTest.setUp(CollisionTableTest.java:51)
+
+testContains  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at myNiceStructures.hashTables.CollisionTableTest.setUp(CollisionTableTest.java:51)
+
+testPutMapComplete  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at myNiceStructures.hashTables.CollisionTableTest.setUp(CollisionTableTest.java:51)
+
+testIteratorEmptyList  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at myNiceStructures.hashTables.CollisionTableTest.setUp(CollisionTableTest.java:51)
+
+testPutGet  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at myNiceStructures.hashTables.CollisionTableTest.setUp(CollisionTableTest.java:51)
+
+testRemove  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at myNiceStructures.hashTables.CollisionTableTest.setUp(CollisionTableTest.java:51)
+
+testIterator  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at myNiceStructures.hashTables.CollisionTableTest.setUp(CollisionTableTest.java:51)
+
+testIteratorRemoveExceptions  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not supported yet.
+	at myNiceStructures.hashTables.CollisionTableTest.setUp(CollisionTableTest.java:51)
+
