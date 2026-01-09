@@ -14,14 +14,14 @@ public final class BinarySearchTreeImpl<K extends Comparable<K>> implements Bina
 	
 	public BinarySearchTreeImpl(K root) {
 		if(root == null) {
-			throw new IllegalArgumentException("root ne peut pas être null");
+			throw new NullPointerException("root ne peut pas être null");
 		}
 		this.root = root;
 	}
 	
 	public BinarySearchTreeImpl(K root, BinarySearchTreeImpl<K> left, BinarySearchTreeImpl<K> right) {
 		if(root == null) {
-			throw new IllegalArgumentException("root ne peut pas être null");
+			throw new NullPointerException("root ne peut pas être null");
 		}
 		this.root = root;
 		this.leftSubTree = left;
@@ -35,7 +35,7 @@ public final class BinarySearchTreeImpl<K extends Comparable<K>> implements Bina
 
 	@Override
 	public final void setRoot(K valeur) {
-		throw new IllegalAccessError("Impossible de mettre des valeurs dans BinarySearchTreeImpl -> setRoot()");
+		throw new UnsupportedOperationException("Impossible de mettre des valeurs dans BinarySearchTreeImpl -> setRoot()");
 	}
 
 	@Override
@@ -133,7 +133,7 @@ public final class BinarySearchTreeImpl<K extends Comparable<K>> implements Bina
 	}
 
 	@Override
-	public K getMin() {		
+	public K getMin() {
 		BinarySearchTree<K> currentTree = this;
 		
 		do {
@@ -202,31 +202,46 @@ public final class BinarySearchTreeImpl<K extends Comparable<K>> implements Bina
 
 	@Override
 	public BinarySearchTree<K> remove(K key) throws ValueNotFound, ImpossibleDeletion {
-		if(key == null) {
-			throw new IllegalArgumentException("key ne peut pas être null");
-		}
-		
-		
-		if(!this.contains(key)) return null;
-		
-		BinarySearchTree<K> parentTree = null;
-		BinarySearchTree<K> currentTree = this;
-		
-		do {
-			resComp = currentTree.getRoot().compareTo(key);
-			if(resComp < 0) {
-				// key plus grand que moi
-				currentTree = currentTree.getRightSubTree();
-				parentTree = currentTree;
-			}
-			else if(resComp > 0) {
-				// key plus petite que moi
-				currentTree = currentTree.getLeftSubTree();
-				parentTree = currentTree;
-			}
-		} while(resComp != 0 && currentTree != null);
-		
-		return this;
+		if(key == null) throw new ImpossibleDeletion("key ne peut pas être null");
+		if(this.isLeaf()) throw new ImpossibleDeletion("l'arbre est une feuille");
+		if(!this.contains(key)) throw new ValueNotFound("la clé n'a pas été trouvé");
+
+		return removeRec(this, key);
 	}
 
+	
+	private BinarySearchTreeImpl<K> removeRec(BinarySearchTreeImpl<K> currentTree, K key) {
+	if (currentTree == null) return null;
+
+	int resComp = key.compareTo(currentTree.getRoot());
+	
+	if (resComp < 0) {
+		return new BinarySearchTreeImpl<K>(
+				currentTree.getRoot(),
+				removeRec(currentTree.getLeftSubTree(), key),
+				currentTree.getRightSubTree()
+		);
+	}
+
+	if (resComp > 0) {
+		return new BinarySearchTreeImpl<K>(
+				currentTree.getRoot(),
+				currentTree.getLeftSubTree(),
+				removeRec(currentTree.getRightSubTree(), key)
+		);
+	}
+
+	if (currentTree.getLeftSubTree() == null && currentTree.getRightSubTree() == null) return null;
+
+	if (currentTree.getLeftSubTree() == null) return currentTree.getRightSubTree();
+	if (currentTree.getRightSubTree() == null) return currentTree.getLeftSubTree();
+
+	K nextTree = currentTree.getRightSubTree().getMin();
+
+	return new BinarySearchTreeImpl<K>(
+			nextTree,
+			currentTree.getLeftSubTree(),
+			removeRec(currentTree.getRightSubTree(), nextTree)
+	);
+	}
 }
