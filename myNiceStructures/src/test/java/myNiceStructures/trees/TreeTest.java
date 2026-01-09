@@ -58,7 +58,7 @@ public class TreeTest {
     @Test
     public void testGetRoot() {
         String v = "value";
-        Tree arbre = TestedTreeImplementationFactory.createTree(v);
+        Tree<String> arbre = TestedTreeImplementationFactory.createTree(v);
         assertEquals(v, arbre.getRoot(), "Racine incorrect");
     }
 
@@ -95,35 +95,35 @@ public class TreeTest {
 
     @Test
     public void testGetNumLeaves() {
-        Tree arbre = TestingTreeGenerator.generateArbreTest1();
+        Tree<String> arbre = TestingTreeGenerator.generateArbreTest1();
         Integer expectedNbFeuilles = TestingTreeGenerator.getNbFeuillesArbreTest1();
         assertEquals(expectedNbFeuilles, arbre.getNumLeaves(), "Nombre de feuilles incorrect");
     }
     
     @Test
     public void testGetNumLeavesBigTree() {
-        Tree arbre = TestingTreeGenerator.generateGrandArbre();
+        Tree<Boolean> arbre = TestingTreeGenerator.generateGrandArbre();
         Integer expectedNbFeuilles = 1;
         assertEquals(expectedNbFeuilles, arbre.getNumLeaves(), "Nombre de feuilles incorrect");
     }
 
     @Test
     public void testGetHeight() {
-        Tree arbre = TestingTreeGenerator.generateArbreTest1();
+        Tree<String> arbre = TestingTreeGenerator.generateArbreTest1();
         int expectedHauteurArbre = TestingTreeGenerator.getHauteurArbreTest1();
         assertEquals(expectedHauteurArbre, arbre.getHeight(), "Hauteur incorrecte");
     }
     
     @Test
     public void testGetHeightBigTree() {
-        Tree arbre = TestingTreeGenerator.generateGrandArbre();
+        Tree<Boolean> arbre = TestingTreeGenerator.generateGrandArbre();
         int expectedHauteurArbre = 100000;
         assertEquals(expectedHauteurArbre, arbre.getHeight(), "Hauteur incorrecte");
     }
 
     @Test
     public void testContains() {
-        Tree arbre = TestingTreeGenerator.generateArbreTest1();
+        Tree<String> arbre = TestingTreeGenerator.generateArbreTest1();
         assertEquals(true, arbre.contains("e"), "\"e\" est contenu l'arbre");
         assertEquals(true, arbre.contains("h"), "\"h\" est contenu l'arbre");
         assertEquals(true, arbre.contains("a"), "\"a\" est contenu l'arbre");
@@ -146,7 +146,7 @@ public class TreeTest {
         Tree<String> arbre = TestingTreeGenerator.generateArbreTest1();
         String expectedValue = TestingTreeGenerator.parcoursPrefixe();
         final StringBuilder sb = new StringBuilder();
-        ((SimpleTreeImpl) arbre).processNodesPrefixQueue((v) -> sb.append(v).append(", "));
+        arbre.processNodesPrefixQueue((v) -> sb.append(v).append(", "));
         final String computedValue = sb.substring(0, sb.length() - 2);
         assertEquals(expectedValue, computedValue, "Parcours invalide");
     }
@@ -173,7 +173,7 @@ public class TreeTest {
         Tree<String> arbre = TestingTreeGenerator.generateArbreTest1();
         String expectedValue = TestingTreeGenerator.parcoursSuffixe();
         final StringBuilder sb = new StringBuilder();
-        ((SimpleTreeImpl) arbre).processNodesSuffixQueue((v) -> sb.append(v).append(", "));
+        arbre.processNodesSuffixQueue((v) -> sb.append(v).append(", "));
         final String computedValue = sb.substring(0, sb.length() - 2);
         assertEquals(expectedValue, computedValue, "Parcours invalide");
     }

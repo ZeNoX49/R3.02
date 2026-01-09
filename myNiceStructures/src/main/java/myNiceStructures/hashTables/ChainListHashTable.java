@@ -2,7 +2,7 @@ package myNiceStructures.hashTables;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
+import java.util.NoSuchElementException;
 
 public class ChainListHashTable<K, V> implements HashTable<K, V> {
 	public static final int DEFAULT_TABLE_SIZE = 100;
@@ -18,12 +18,6 @@ public class ChainListHashTable<K, V> implements HashTable<K, V> {
 	@SuppressWarnings("unchecked")
 	public ChainListHashTable(int size) {
 		this.table = new ArrayList[size];
-	}
-	
-	@Override
-	public Iterator<HashTableEntry<K, V>> iterator() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 	private int getIdxFromKey(K key) {
@@ -120,6 +114,70 @@ public class ChainListHashTable<K, V> implements HashTable<K, V> {
 	@Override
 	public int size() {
 		return this.nbEntries;
+	}
+
+	@Override
+	public Iterator<HashTableEntry<K, V>> iterator() {
+		return new ChainListIterator();
+	}
+
+	public class ChainListIterator implements Iterator<HashTableEntry<K, V>> {
+
+		private int nextListIdx;
+		private Iterator<SimpleHashTableEntry<K, V>> currentListIt = null;
+
+		public ChainListIterator() {
+			this.nextListIdx = this.goToNextListIdx(0);
+		}
+
+		/**
+		 * A partir d'un indice de départ startIdx
+		 * calcul le prochain indice (strict. sup. à startIdx)
+		 * dont l'entrée de la table n'est ni nulle ni vide
+		 * on retourne une valeur >= à la taille de la table sinon
+		 * @param startIdx indice de départ < table.length
+		 * @return prochain indice de liste non vide ou >= table.length
+		 */
+		private int goToNextListIdx(int startIdx) {
+			int nextIdx = startIdx + 1;
+			while(startIdx < table.length && (table[this.nextListIdx] == null || table[this.nextListIdx].isEmpty())) {
+				nextIdx++;
+			}
+			return nextIdx;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return (this.currentListIt != null && this.currentListIt.hasNext()) || this.nextListIdx < table.length;
+		}
+
+		@Override
+		public HashTableEntry<K, V> next() {
+			// 2 garnds cas possible :
+			// Je suis sur un iterateur de liste non fini
+			// Ou, je n'ai pas d'itérateur de liste non fini
+			if(this.currentListIt == null && !this.currentListIt.hasNext()) {
+				if(this.nextListIdx >= table.length) {
+					throw new NoSuchElementException();
+				}
+				this.currentListIt = table[this.nextListIdx].iterator();
+				// prépare l'indice de la prochaine liste, le cas échéant
+				this.nextListIdx = this.goToNextListIdx(this.nextListIdx);
+			}
+			
+			return this.currentListIt.next();
+		}
+
+		@Override
+		public void remove() {
+			if(this.currentListIt != null) {
+				this.currentListIt.remove();
+				nbEntries--;
+			} else {
+				throw new IllegalStateException();
+			}
+		}
+	
 	}
 
 }
